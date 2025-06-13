@@ -1,4 +1,4 @@
-# 🧠 Le Mens Driver Fatigue Prediction & Swap Optimization
+# 🧠 Le Mans Driver Fatigue Prediction & Swap Optimization
 
 ## 🔍 Overview
 This project uses machine learning to predict driver fatigue from lap times and telemetry, recommending optimal swap windows to reduce performance dips. Ideal for endurance racing formats like Le Mans.
