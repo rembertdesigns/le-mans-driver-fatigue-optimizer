@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier, IsolationForest
 from river import compose, linear_model, preprocessing, metrics
+from src.swap_optimizer import recommend_swap_window
 
 # Add the /src folder to the Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
@@ -112,3 +113,8 @@ df["anomaly"] = iso.fit_predict(anomaly_features)
 
 df.to_csv("data/lap_data_with_anomalies.csv", index=False)
 print("✅ Anomaly-labeled data saved to data/lap_data_with_anomalies.csv")
+
+# Load the data again or use the one with anomaly/fatigue labels
+lap_df = pd.read_csv("data/lap_data_with_anomalies.csv")
+swap_suggestion = recommend_swap_window(lap_df)
+print(f"\n🚨 Swap Recommendation:\n{swap_suggestion}")
